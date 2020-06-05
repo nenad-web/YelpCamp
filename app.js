@@ -18,7 +18,35 @@ var commentRoutes       = require("./routes/comments"),
 
 
 // seedDB(); //seed the database
-mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect("mongodb://localhost/yelp_camp", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+// mongoose.connect("mongodb+srv://nenad7734:webdevA1.@cluster0-3apyq.mongodb.net/?retryWrites=true&w=majority/yelp_camp", { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+
+// const uri = "mongodb+srv://nenad7734:webdevA1.@cluster0-3apyq.mongodb.net/yelp_camp?retryWrites=true&w=majority/";
+// mongoose.connect(uri, { 
+//     useNewUrlParser: true, 
+//     useUnifiedTopology: true 
+// }).then(() => {
+//     console.log("Connected to DB");
+// }).catch(err => {
+//     console.log("ERROR", err.message);
+// });
+
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://nenad7734:webdevA1.@cluster0-3apyq.mongodb.net/yelp_camp?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
+
+mongoose.connect("mongodb+srv://nenadweb:webdev@cluster0-qkkpe.mongodb.net/yelp_camp?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
