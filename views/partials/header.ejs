@@ -28,17 +28,17 @@
             <ul class="navbar-nav">
                 <% if(!currentUser){ %>
                 <li class="nav-item <%= typeof page !== "undefined" && page === "login" ? "active" : "" %>">
-                    <a href="/login" class="nav-link">Login</a>
+                    <a href="/login" class="nav-link">Log In</a>
                 </li>
                 <li class="nav-item <%= typeof page !== "undefined" && page === "register" ? "active" : "" %>">
-                    <a href="/register" class="nav-link">Sign Up</a>
+                    <a href="/register" class="nav-link">Sign Up <i class="fas fa-user-plus"></i></a>
                 </li>
                 <% } else { %>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Signed In As <%= currentUser.username %></a>
+                    <a href="#" class="nav-link">Loged in as <%= currentUser.username %></a>
                 </li>
                 <li class="nav-item">
-                    <a href="/logout" class="nav-link">Logout <i class="fas fa-user-slash"></i></a>
+                    <a href="/logout" class="nav-link">Log Out <i class="fas fa-user-slash"></i></a>
                 </li>
                 <% } %>
             </ul>
