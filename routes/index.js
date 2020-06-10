@@ -45,7 +45,9 @@ router.post("/login", passport.authenticate("local",
         successRedirect: "/campgrounds",
         failureRedirect: "/login",
         failureFlash: true,
+        successFlash: "Welcome back to YelpCamp!"
     }), function(req, res){
+        
 });
 
 //logout route
