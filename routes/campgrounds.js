@@ -101,19 +101,19 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
         if(err){
             res.redirect("/campgrounds");
         } else {
-            Comment.remove({"_id": {$in: campground.comments}}, function(err){
-                if(err){
-                    console.log(err);
-                    return res.redirect("/campgrounds");
-                }
-                Review.remove({"_id": {$in: campground.reviews}}, function(err){
-                    if(err){
-                        console.log(err);
-                        return res.redirect("/campgrounds");
-                    }
-                })
-            })
-            campground.remove();
+            // Comment.remove({"_id": {$in: campground.comments}}, function(err){
+            //     if(err){
+            //         console.log(err);
+            //         return res.redirect("/campgrounds");
+            //     }
+            //     Review.remove({"_id": {$in: campground.reviews}}, function(err){
+            //         if(err){
+            //             console.log(err);
+            //             return res.redirect("/campgrounds");
+            //         }
+            //     })
+            // })
+            // campground.remove();
             req.flash("success", "Successfully deleted campground!");
             res.redirect("/campgrounds");
         }
