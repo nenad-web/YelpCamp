@@ -9,8 +9,17 @@
             <p>
                 <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add new Campground</a>
             </p>
+            <p>
+                <form action="/campgrounds" method="GET" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" name="search" class="form-control" placeholder="Campground search...">
+                        <button class="btn btn-primary btn-md">Search <i class="fas fa-search"></i></button>
+                    </div>
+                </form>
+            </p>
         </div>
     </header>
+    
     <div class="container row">
         <div class="col-12-lg"  style="padding-bottom: 20px">
             <h3 class="display-4 heading">Our most popular campgrounds <i class="fas fa-arrow-down"></i></h1>

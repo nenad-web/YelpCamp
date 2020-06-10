@@ -2,10 +2,26 @@ var express = require("express");
 var router = express.Router();
 var Campground = require("../models/campgrounds");
 var middleware = require("../middleware");
+var NodeGeocoder = require('node-geocoder');
+ 
 
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
+  if(req.query.search){
+    const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+    Campground.find({name: regex}, function(err, allCampgrounds){
+        if(err){
+            console.log(err);
+        } else {
+            if(allCampgrounds.length < 1) {
+                req.flash("error", "Campground not found");
+                return res.redirect("back");
+        }
+            res.render("campgrounds/index", {campgrounds: allCampgrounds, currentUser: req.user})
+        }
+    });
+  } else {
     // Get all campgrounds from DB
     Campground.find({}, function(err, allCampgrounds){
         if(err){
@@ -14,7 +30,7 @@ router.get("/", function(req, res){
             res.render("campgrounds/index", {campgrounds: allCampgrounds, currentUser: req.user})
         }
     });
-
+  }
 });
 
 //CREATE - add new campgrounds to db 
@@ -86,8 +102,10 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
 });
 
 
-
-
+// Define escapeRegex function for search feature
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 
 module.exports = router;

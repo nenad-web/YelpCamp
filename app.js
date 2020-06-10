@@ -13,7 +13,7 @@ var express     = require("express"),
 
 //requiring routes
 var commentRoutes       = require("./routes/comments"),
-    campgroundRoutes    = require("./routes/campgrounds")
+    campgroundRoutes    = require("./routes/campgrounds"),
     indexRoutes         = require("./routes/index");
 
 
@@ -29,6 +29,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+app.locals.moment = require('moment');
 // PASSPORT CONFIG
 app.use(require("express-session")({
     secret: "All we ever hear from you is ....?",
@@ -70,6 +71,9 @@ var campgrounds = [
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+
+
+ 
 
 var port = process.env.PORT || 3000;
 app.listen(port, function(){

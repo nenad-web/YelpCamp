@@ -1,9 +1,55 @@
 <%- include("../partials/header"); %>
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
+<style>
+	#map { position: absolute; top: 0; bottom: 0; width: 90%; height: 500px; }
+</style>
 
 <div class="row">
-    <div class="col-md-3">
-      <div id="map"></div>
+  
+    <div class="d-none d-sm-block col-md-3">
+      
+      <div id="maps img-responsive">
+        <div id="map"></div>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+        <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
+        <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+        <style>
+          #geocoder-container>div {
+            min-width: 50%;
+            margin-left: 25%;
+          }
+        </style>
+        <div id="map"></div>
+        
+        <script>
+          mapboxgl.accessToken = 'pk.eyJ1IjoibmVuYWQ3NzM0IiwiYSI6ImNrYjgxZnFsNDA3NnYycnFybml6Mm5nbTMifQ.Sz_WZNcKdUazG1BzDx3bxA';
+          var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-79.4512, 43.6568],
+            zoom: 13
+          });
+
+          var geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            marker: {
+              color: 'orange'
+            },
+            mapboxgl: mapboxgl
+          });
+
+          map.addControl(geocoder);
+        </script>
+        
+    
+      </div>
+     
     </div>
+
     <div class="col-md-9">
       <div class="card mb-3">
         <img class="card-img-top" src="<%= campground.image %>" alt="<%= campground.name %>">
@@ -13,7 +59,7 @@
           </p>
           <h5 class="card-title"><%= campground.name %></h5>
           <p>
-            <em>Submitted by: <%= campground.author.username %></em>
+            <em>Submitted by: <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %> </em>
           </p>
           <hr>
           <p class="card-text"><%= campground.description %></p>
@@ -41,8 +87,9 @@
                     <p class="card-text"><%= comment.text %></p>
                   </div>
                   <div class="float-right">
-                    <p></p>
-                    
+                    <p><%= moment(comment.createdAt).fromNow() %></p>
+
+                  
                     <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                     <div class="float-right">
                       <a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit" class="btn btn-sm btn-warning">EDIT</a>
@@ -62,7 +109,6 @@
     </div>
   </div>
   </div>
-
 
 
 
