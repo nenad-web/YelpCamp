@@ -13,8 +13,10 @@ var express     = require("express"),
 
 //requiring routes
 var commentRoutes       = require("./routes/comments"),
+    reviewRoutes        = require("./routes/reviews");
     campgroundRoutes    = require("./routes/campgrounds"),
     indexRoutes         = require("./routes/index");
+
 
 
 
@@ -71,6 +73,8 @@ var campgrounds = [
 app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/campgrounds/:id/reviews", reviewRoutes);
+
 
 
  

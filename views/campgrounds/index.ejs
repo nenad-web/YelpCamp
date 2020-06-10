@@ -1,6 +1,5 @@
 <%- include("../partials/header"); %>
 
-
 <div class="container">
     <header class="jumbotron">
         <div class="container">
@@ -32,6 +31,15 @@
                   <img class="card-img-top" src="<%= campground.image %>" alt="<%= campground.name %>">
                   <div class="card-body">
                     <h5 class="card-title"><%= campground.name %></h5>
+                    <% if (campground.rating === 0) { %>
+                        <em>No reviews yet.</em>
+                        <% } else { %>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
+                        <% } %>
                     <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
                   </div>
                 </div>

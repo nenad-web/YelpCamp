@@ -49,6 +49,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
        if(err){
         console.log(err);
        } else {
+           req.flash("success", "Successfully added campground!");
            res.redirect("/campgrounds");
        }
    });
@@ -62,7 +63,10 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 // SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
     //find  the campground with provided ID
-    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
+    Campground.findById(req.params.id).populate("comments").populate({
+        path: "reviews",
+        options: {sort: {createdAt: -1}}
+    }).exec(function(err, foundCampground){
         if(err || !foundCampground){
             req.flash("error", "Campground not found");
             res.redirect("back");
@@ -85,6 +89,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
         if(err){
             res.redirect("/campgrounds");
         } else {
+            req.flash("success", "Successfully updated campground!");
             res.redirect("/campgrounds/" + req.params.id);
         }
     });
@@ -96,10 +101,27 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
         if(err){
             res.redirect("/campgrounds");
         } else {
+            Comment.remove({"_id": {$in: campground.comments}}, function(err){
+                if(err){
+                    console.log(err);
+                    return res.redirect("/campgrounds");
+                }
+                Review.remove({"_id": {$in: campground.reviews}}, function(err){
+                    if(err){
+                        console.log(err);
+                        return res.redirect("/campgrounds");
+                    }
+                })
+            })
+            campground.remove();
+            req.flash("success", "Successfully deleted campground!");
             res.redirect("/campgrounds");
         }
     });
 });
+
+
+
 
 
 // Define escapeRegex function for search feature

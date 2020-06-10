@@ -1,3 +1,10 @@
+body{
+  background: #BDDBF4;
+}
+.jumbotron{
+  border-radius: 25px;
+}
+
 .thumbnail img {
     width: 100%;
 }
@@ -39,10 +46,17 @@
   border-bottom-left-radius: 0;
 }
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 } 
+.checked {
+  color: orange;
+}
+.fa-star{
+  padding-bottom: 20px;
+}
+
 @media (max-width: 1200px) {
   .heading {
       
