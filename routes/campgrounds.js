@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 var Campground = require("../models/campgrounds");
+var Comment = require("../models/comment");
+var Review = require("../models/reviews");
 var middleware = require("../middleware");
 var NodeGeocoder = require('node-geocoder');
  
@@ -97,23 +99,23 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
 
 //DESTROY CAMPGROUND ROUTE
 router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
-    Campground.findByIdAndRemove(req.params.id, function(err){
+    Campground.findByIdAndRemove(req.params.id, function(err, campground){
         if(err){
             res.redirect("/campgrounds");
         } else {
-            // Comment.remove({"_id": {$in: campground.comments}}, function(err){
-            //     if(err){
-            //         console.log(err);
-            //         return res.redirect("/campgrounds");
-            //     }
-            //     Review.remove({"_id": {$in: campground.reviews}}, function(err){
-            //         if(err){
-            //             console.log(err);
-            //             return res.redirect("/campgrounds");
-            //         }
-            //     })
-            // })
-            // campground.remove();
+            Comment.remove({"_id": {$in: campground.comments}}, function(err){
+                if(err){
+                    console.log(err);
+                    return res.redirect("/campgrounds");
+                }
+                Review.remove({"_id": {$in: campground.reviews}}, function(err){
+                    if(err){
+                        console.log(err);
+                        return res.redirect("/campgrounds");
+                    }
+                })
+            })
+            campground.remove();
             req.flash("success", "Successfully deleted campground!");
             res.redirect("/campgrounds");
         }
