@@ -70,10 +70,13 @@ body .hP{
 .navbar{
   margin-bottom: 20px;
 }
-
+.center-heading{
+  margin: auto;
+}
 @media (max-width: 1200px) {
   .heading {
       font-size: 1.5rem;
+      padding-top: 20px;
   }
   .carousel-inner{
     height: 500px;
