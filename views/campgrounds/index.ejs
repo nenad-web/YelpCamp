@@ -1,24 +1,98 @@
 <%- include("../partials/header"); %>
 
 <div class="container">
-    <header class="jumbotron">
-        <div class="container">
-            <h1>Welcome to YelpCamp! <i class="fas fa-map-marked-alt"></i></h1>
-            <p>View our hand-picked campgrounds from all over the world!</p>
-            <p>
-                <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add new Campground</a>
-            </p>
-            <p>
-                <form action="/campgrounds" method="GET" class="form-inline">
-                    <div class="form-group">
-                        <input type="text" name="search" class="form-control" placeholder="Campground search...">
-                        <button class="btn btn-primary btn-md">Search <i class="fas fa-search"></i></button>
-                    </div>
-                </form>
-            </p>
-        </div>
-    </header>
     
+    
+
+
+
+
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <!-- Carousel -->
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://images.unsplash.com/photo-1517824806704-9040b037703b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="First slide">
+                            <!-- Static Header -->
+                            <div class="header-text hidden-xs">
+                                <div class="col-md-12 text-center main-text">
+                                </div>
+                            </div><!-- /header-text -->
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Second slide">
+                            <!-- Static Header -->
+                            <div class="header-text hidden-xs">
+                                <div class="col-md-12 text-center">
+                                </div>
+                            </div><!-- /header-text -->
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1475483768296-6163e08872a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Third slide">
+                            <!-- Static Header -->
+                            <div class="header-text hidden-xs">
+                                <div class="col-md-12 text-center">
+                                </div>
+                            </div><!-- /header-text -->
+                        </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    <div class="main-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <div class="container">
+                                <h1>Welcome to YelpCamp! <i class="fas fa-map-marked-alt"></i></h1>
+                                <p class="hP">View our hand-picked campgrounds from all over the world!</p>
+                                <p>
+                                    <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add new Campground</a>
+                                </p>
+                                <p>
+                                <form action="/campgrounds" method="GET" class="form-inline searchform">
+                                    <div class="form-group">
+                                        <input type="text" name="search" class="form-control" placeholder="Campground search...">
+                                        <button class="btn btn-primary btn-md">Search <i class="fas fa-search"></i></button>
+                                    </div>
+                                </form>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    </div><!-- /carousel -->
+                    </div>
+                    </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="container row">
         <div class="col-12-lg"  style="padding-bottom: 20px">
             <h3 class="display-4 heading">Our most popular campgrounds <i class="fas fa-arrow-down"></i></h1>
