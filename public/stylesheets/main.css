@@ -84,9 +84,9 @@ body .hP{
   body .hP{
     font-size: 1rem;
   }
+ 
 }
-.main-text
-{
+.main-text {
     position: absolute;
     width: 96.66666666666666%;
     color: #FFF;
