@@ -76,6 +76,9 @@ body{
     #landing-header h1{
         font-size: 3rem;
     }
+    .btn{
+        width: inherit;
+    }
 }
 
 
