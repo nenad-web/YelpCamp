@@ -73,8 +73,8 @@ body{
     }
 }
 @media (max-width: 1200px) {
-    .landing-header{
-
+    #landing-header h1{
+        font-size: 3rem;
     }
 }
 
