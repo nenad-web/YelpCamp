@@ -23,7 +23,6 @@ body{
     display: inline;
 }
 
-
  .form-signin {
   width: 100%;
   max-width: 330px;
@@ -93,6 +92,9 @@ body .hP{
   .navbar{
     margin-bottom: 0;
   }
+  .center-heading{
+    margin: auto;
+}
  
 }
 .main-text {
