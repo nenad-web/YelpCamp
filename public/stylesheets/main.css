@@ -203,12 +203,29 @@ filter: alpha(opacity=70);
   background-color: #fff;
   border-color: #fff;
 }
-.btnNew{
+#btnNew, #btnSr{
   border-radius: 28px;
-  background: #C6E1F9;
+  /* background: #C6E1F9; */
+  background: #055518;
   border: none;
-  color: #000;
+  color: #FFF;
+}
+#btnNew:hover{
+  background-color: #09B432;
+}
+#btnSr:hover{
+  background-color: #09B432;
 }
 .inpNew{
   border-radius: 28px;
+}
+#btnInfo{
+  background: #FF7E23;
+  border-radius: 28px;
+  border-color: #FF7E23;
+}
+#btnInfo:hover{
+  color: #fff;
+  background-color: #FE4B03;
+  border-color: #FF7E23;
 }

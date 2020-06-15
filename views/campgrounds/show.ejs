@@ -161,9 +161,9 @@
                   
                     <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
                     <div class="float-right">
-                      <a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit" class="btn btn-sm btn-warning">EDIT</a>
+                      <a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit" class="btn btn-sm btn-warning">Edit</a>
                       <form class="delete-form" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
-                        <button class="btn btn-sm btn-danger">DELETE</button>
+                        <button class="btn btn-sm btn-danger">Delete</button>
                       </form>
                     </div>
                     <% } %>

@@ -60,13 +60,13 @@
                                 <h1>Welcome to YelpCamp! <i class="fas fa-map-marked-alt"></i></h1>
                                 <p class="hP">View our hand-picked campgrounds from all over the world!</p>
                                 <p>
-                                    <a class="btnNew btn btn-primary btn-lg" href="/campgrounds/new">Add new Campground <i class="fas fa-campground"></i></a>
+                                    <a id="btnNew" class="btn btn-primary btn-lg" href="/campgrounds/new">Add new Campground <i class="fas fa-campground"></i></a>
                                 </p>
                                 <p>
                                 <form action="/campgrounds" method="GET" class="form-inline searchform">
                                     <div class="form-group">
                                         <input type="text" name="search" class="form-control inpNew" placeholder="Campground search...">
-                                        <button class="btnNew btn btn-primary btn-md">Search <i class="fas fa-search"></i></button>
+                                        <button id="btnSr" class="btn btn-primary btn-md">Search <i class="fas fa-search"></i></button>
                                     </div>
                                 </form>
                                 </p>
@@ -101,7 +101,7 @@
                         <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
                         <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
                         <% } %>
-                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary" id="btnInfo">More Info</a>
                   </div>
                 </div>
             </div>
