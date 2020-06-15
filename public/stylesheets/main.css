@@ -19,6 +19,7 @@ body{
     padding: 9px;
 } */
 
+
 .delete-form {
     display: inline;
 }
@@ -95,7 +96,6 @@ body .hP{
   .center-heading{
     margin: auto;
 }
- 
 }
 .main-text {
     position: absolute;
@@ -202,4 +202,13 @@ filter: alpha(opacity=70);
   color: #000;
   background-color: #fff;
   border-color: #fff;
+}
+.btnNew{
+  border-radius: 28px;
+  background: #C6E1F9;
+  border: none;
+  color: #000;
+}
+.inpNew{
+  border-radius: 28px;
 }
