@@ -72,6 +72,9 @@ body{
       opacity: 0
     }
 }
+.btn{
+    border-radius: 28px;
+}
 @media (max-width: 1200px) {
     #landing-header h1{
         font-size: 3rem;

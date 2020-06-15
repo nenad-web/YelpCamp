@@ -220,12 +220,15 @@ filter: alpha(opacity=70);
   border-radius: 28px;
 }
 #btnInfo{
-  background: #FF7E23;
+  /* background: #FF7E23; */
+  background-color: #055518;
   border-radius: 28px;
-  border-color: #FF7E23;
+  /* border-color: #FF7E23; */
+  border-color: #000;
 }
 #btnInfo:hover{
   color: #fff;
-  background-color: #FE4B03;
-  border-color: #FF7E23;
+  /* background-color: #FE4B03;
+  border-color: #FF7E23; */
+  background-color: #09B432;
 }
